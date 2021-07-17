@@ -1,4 +1,4 @@
-package com.academia.academiaSpring.userController;
+package com.academia.academiaSpring.Controller;
 
 import java.util.ArrayList;
 import java.util.List;
