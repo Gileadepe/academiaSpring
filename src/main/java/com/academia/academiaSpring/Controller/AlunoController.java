@@ -3,6 +3,9 @@ package com.academia.academiaSpring.controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,7 +31,7 @@ public class AlunoController {
 	
 	
 	@PostMapping(value = "/post")
-	public Aluno criarAluno(@RequestBody Aluno aluno) {
+	public Aluno criarAluno(@Valid @RequestBody Aluno aluno) {
 		return this.alunoRepository.save(aluno);
 		
 		//alunos.add(aluno);
@@ -59,7 +62,7 @@ public class AlunoController {
 			aluno.setNome(newAluno.getNome());
 			aluno.setIdade(newAluno.getIdade());
 			aluno.setCpf(newAluno.getCpf());
-			aluno.setNomeCurso(newAluno.getNomeCurso());
+			aluno.setCurso(newAluno.getCurso());
 			alunoRepository.save(aluno);
 			
 			return "Aluno alterado com sucesso!";
